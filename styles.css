@@ -273,6 +273,20 @@ header input {
     scroll-snap-type: x mandatory;
 }
 
+#hourly-forecast::-webkit-scrollbar {
+    height: 8px;
+}
+
+#hourly-forecast::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+#hourly-forecast::-webkit-scrollbar-track {
+    background-color: #888;
+    border-radius: 4px;
+}
+
 .weekly-forecast {
     display: flex;
     overflow-x: auto;
@@ -290,7 +304,7 @@ header input {
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
-    min-width: 120px;
+    min-width: 200px;
     height: 180px;
     background-color: #f9f9f9;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);

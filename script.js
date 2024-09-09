@@ -91,6 +91,12 @@ function updateWeatherUI(data) {
     });
 
     const weeklyForecastDiv = document.getElementById("weekly-forecast");
+    weeklyForecastDiv.style.display = 'flex';
+    weeklyForecastDiv.style.overflowX = 'auto';
+    weeklyForecastDiv.style.scrollSnapType = 'x mandatory';
+    weeklyForecastDiv.style.padding = '10px';
+    weeklyForecastDiv.style.gap = '10px';
+    weeklyForecastDiv.style.whiteSpace = 'nowrap';
     weeklyForecastDiv.innerHTML = "";
     data.forecast.forecastday.forEach(day => {
         const dayDiv = document.createElement("div");
@@ -101,7 +107,7 @@ function updateWeatherUI(data) {
             <p>Max: ${day.day.maxtemp_c}° Min: ${day.day.mintemp_c}°</p>
         `;
         weeklyForecastDiv.appendChild(dayDiv);
-    });    
+    });   
 }
 
 function handleCitySearch() {
