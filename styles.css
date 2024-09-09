@@ -1,0 +1,324 @@
+/* Styles for sections */
+#weather-section {
+    display: block;
+}
+
+#country-info-section {
+    display: none;
+}
+
+#map-section {
+    display: none;
+}
+
+#settings-section {
+    display: none;
+}
+
+#about-section {
+    display: none;
+}
+
+
+/* Weather App */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1d28;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 85%;
+    height: 90vh;
+    background-color: #2b2e3b;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #1f2230;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #2b2e3b;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sidebar ul li:hover {
+    background-color: #404354;
+}
+
+.main-content {
+    width: 80%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+header input {
+    width: 100%;
+    padding: 15px;
+    background-color: #1f2230;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.weather-overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.weather-overview h1 {
+    font-size: 48px;
+}
+
+.weather-overview .temp {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+}
+
+.weather-overview .weather-icon {
+    width: 120px;
+    margin-left: 20px;
+}
+
+.forecast {
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.forecast h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#hourly-forecast {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.details .card {
+    background-color: #1f2230;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    margin-right: 15px;
+    text-align: center;
+    color: #d0d1d4;
+}
+
+.details .card:last-child {
+    margin-right: 0;
+}
+
+.details .card h3 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.weekly-forecast h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.weekly-forecast {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.weekly-forecast .week-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #2b2e3b;
+}
+
+.weekly-forecast .week-day:last-child {
+    border-bottom: none;
+}
+
+.weekly-forecast .week-day img {
+    width: 40px;
+}
+
+.weekly-forecast .week-day p {
+    margin: 0;
+    color: #d0d1d4;
+    font-size: 18px;
+}
+
+.hour-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.123);
+    text-align: center;
+}
+
+.hour-card p {
+    margin: 5px 0;
+}
+
+.hour-card img {
+    width: 40px;
+    height: 40px;
+    margin: 5px 0;
+}
+
+.hour {
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    color: #d0d1d4;
+    background-color: #00000031;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 0 10px;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    scroll-snap-align: start;
+    transition: transform 0.2s ease-in-out; 
+}
+
+.hour:hover {
+    transform: translateY(-5px);
+}
+
+.hour-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hour-info img {
+    margin: 5px 0;
+}
+
+.hour-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#hourly-forecast {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.weekly-forecast {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.day-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    min-width: 120px;
+    height: 180px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    scroll-snap-align: center;
+}
+
+.day-card p {
+    margin: 5px 0;
+}
+
+.day-card img {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.weekly-forecast::-webkit-scrollbar {
+    height: 8px;
+}
+
+.weekly-forecast::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.weekly-forecast::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* CSS FOR COUNTRY PAGE */
