@@ -3,18 +3,9 @@
     display: block;
 }
 
-#country-info-section {
-    display: none;
-}
-
-#map-section {
-    display: none;
-}
-
-#settings-section {
-    display: none;
-}
-
+#country-info-section,
+#map-section,
+#settings-section,
 #about-section {
     display: none;
 }
@@ -25,8 +16,8 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #1a1d28;
-    color: #ffffff;
+    background-color: #121212;
+    color: #070606;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +31,7 @@ body {
     background-color: #2b2e3b;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar {
@@ -56,6 +47,7 @@ body {
 .sidebar h2 {
     font-size: 24px;
     margin-bottom: 30px;
+    color: #ffffff;
 }
 
 .sidebar ul {
@@ -73,6 +65,7 @@ body {
     background-color: #2b2e3b;
     border-radius: 10px;
     text-align: center;
+    color: #d0d1d4;
 }
 
 .sidebar ul li:hover {
@@ -86,6 +79,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     overflow-y: auto;
+    color: #e0e0e0;
 }
 
 header input {
@@ -94,7 +88,7 @@ header input {
     background-color: #1f2230;
     border: none;
     border-radius: 10px;
-    color: #fff;
+    color: #ffffff;
     font-size: 16px;
     box-sizing: border-box;
     margin-bottom: 30px;
@@ -105,6 +99,7 @@ header input {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    color: #e0e0e0;
 }
 
 .weather-overview h1 {
@@ -130,6 +125,7 @@ header input {
 .forecast h3 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #e0e0e0;
 }
 
 #hourly-forecast {
@@ -139,6 +135,7 @@ header input {
     gap: 10px;
     padding: 10px;
     scroll-snap-type: x mandatory;
+    background-color: #2b2e3b;
 }
 
 .details {
@@ -169,6 +166,7 @@ header input {
 .weekly-forecast h3 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #e0e0e0;
 }
 
 .weekly-forecast {
@@ -178,6 +176,7 @@ header input {
     gap: 10px;
     padding: 10px;
     scroll-snap-type: x mandatory;
+    background-color: #2b2e3b;
 }
 
 .weekly-forecast .week-day {
@@ -185,7 +184,8 @@ header input {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #2b2e3b;
+    border-bottom: 1px solid #3c3f4c;
+    color: #e0e0e0;
 }
 
 .weekly-forecast .week-day:last-child {
@@ -207,15 +207,16 @@ header input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ddd;
+    border: 1px solid #3c3f4c;
     border-radius: 10px;
     padding: 10px;
     width: 150px;
     height: 150px;
     margin: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.123);
+    background-color: #353848;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
+    color: #e0e0e0;
 }
 
 .hour-card p {
@@ -233,16 +234,16 @@ header input {
     align-items: center;
     font-size: 16px;
     color: #d0d1d4;
-    background-color: #00000031;
+    background-color: #3c3f4c;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 10px;
     margin: 0 10px;
     display: inline-block;
     text-align: center;
     width: 120px;
     scroll-snap-align: start;
-    transition: transform 0.2s ease-in-out; 
+    transition: transform 0.2s ease-in-out;
 }
 
 .hour:hover {
@@ -253,6 +254,7 @@ header input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #e0e0e0;
 }
 
 .hour-info img {
@@ -271,6 +273,7 @@ header input {
     gap: 10px;
     padding: 10px;
     scroll-snap-type: x mandatory;
+    background-color: #2b2e3b;
 }
 
 #hourly-forecast::-webkit-scrollbar {
@@ -283,8 +286,7 @@ header input {
 }
 
 #hourly-forecast::-webkit-scrollbar-track {
-    background-color: #888;
-    border-radius: 4px;
+    background-color: #444;
 }
 
 .weekly-forecast {
@@ -294,6 +296,7 @@ header input {
     padding: 10px;
     gap: 10px;
     white-space: nowrap;
+    background-color: #2b2e3b;
 }
 
 .day-card {
@@ -301,15 +304,16 @@ header input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ddd;
+    border: 1px solid #3c3f4c;
     border-radius: 10px;
     padding: 15px;
     min-width: 200px;
     height: 180px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #353848;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
     scroll-snap-align: center;
+    color: #e0e0e0;
 }
 
 .day-card p {
@@ -332,7 +336,57 @@ header input {
 }
 
 .weekly-forecast::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background-color: #444;
+}
+
+/* Settings Section */
+.settings-section {
+    color: #e0e0e0;
+}
+
+.settings-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.settings-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.settings-section .theme-toggle {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.settings-section .theme-toggle label {
+    margin-right: 10px;
+    color: #e0e0e0;
+}
+
+/* About Section */
+.about-section {
+    color: #e0e0e0;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.about-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.about-section a {
+    color: #3da9fc;
+    text-decoration: none;
+}
+
+.about-section a:hover {
+    text-decoration: underline;
 }
 
 /* CSS FOR COUNTRY PAGE */
