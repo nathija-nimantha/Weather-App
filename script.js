@@ -64,7 +64,7 @@ btnMap.addEventListener('click', () => {
     weatherSection.style.display = 'none';
     countryInfoSection.style.display = 'none';
     settingsSection.style.display = 'none';
-    aboutSection.style.display = 'none';
+    // aboutSection.style.display = 'none';
     mapSection.style.display = 'block';
 });
 
@@ -139,7 +139,7 @@ function updateWeatherUI(data) {
             <p>Max: ${day.day.maxtemp_c}° Min: ${day.day.mintemp_c}°</p>
         `;
         weeklyForecastDiv.appendChild(dayDiv);
-    });   
+    });
 }
 
 function handleCitySearch() {
@@ -150,7 +150,7 @@ function handleCitySearch() {
             fetchWeatherData(city);
         }
     });
-    
+
     const citySearchBtn = document.getElementById("city-search-btn");
     citySearchBtn.addEventListener('click', () => {
         const city = cityInput.value;
@@ -159,14 +159,79 @@ function handleCitySearch() {
 }
 
 function init() {
-    handleCitySearch();
     fetchWeatherData("Colombo");
-
-    weatherSection.style.display = 'block';
-    countryInfoSection.style.display = 'none';
-    mapSection.style.display = 'none';
-    settingsSection.style.display = 'none';
-    aboutSection.style.display = 'none';
 }
 
 init();
+
+
+// Cities Page
+
+const countrySearch = document.getElementById('country-search');
+const countryList = document.getElementById('country-list');
+const countryDetails = document.getElementById('country-details');
+const countryFlag = document.getElementById('country-flag');
+const countryName = document.getElementById('country-name');
+const countryCapital = document.getElementById('country-capital');
+const countryRegion = document.getElementById('country-region');
+const countrySubregion = document.getElementById('country-subregion');
+const countryPopulation = document.getElementById('country-population');
+const countryLanguages = document.getElementById('country-languages');
+const countryCurrencies = document.getElementById('country-currencies');
+
+let countries = [];
+
+async function fetchCountries() {
+    try {
+        const response = await fetch('https://restcountries.com/v3.1/all');
+        countries = await response.json();
+        console.log(response);
+        displayCountries(countries);
+    } catch (error) {
+        console.error('Error fetching countries:', error);
+    }
+}
+
+function displayCountries(countries) {
+    countryList.innerHTML = '';
+    countries.forEach(country => {
+        const countryItem = document.createElement('div');
+        countryItem.className = 'country-item';
+        countryItem.textContent = country.name.common;
+        countryItem.addEventListener('click', () => showCountryDetails(country));
+        countryList.appendChild(countryItem);
+    });
+}
+
+function showCountryDetails(country) {
+    countryFlag.src = country.flags.svg;
+    countryFlag.alt = `Flag of ${country.name.common}`;
+    countryName.textContent = country.name.common;
+    countryCapital.textContent = country.capital ? country.capital[0] : 'N/A';
+    countryRegion.textContent = country.region;
+    countrySubregion.textContent = country.subregion;
+    countryPopulation.textContent = country.population.toLocaleString();
+    countryLanguages.textContent = Object.values(country.languages).join(', ');
+    countryCurrencies.textContent = Object.values(country.currencies).map(currency => `${currency.name} (${currency.symbol})`).join(', ');
+    countryDetails.style.display = 'block';
+}
+
+countrySearch.addEventListener('input', function () {
+    const searchTerm = countrySearch.value.toLowerCase();
+    const filteredCountries = countries.filter(country => country.name.common.toLowerCase().includes(searchTerm));
+    displayCountries(filteredCountries);
+});
+
+fetchCountries();
+
+//Map Page
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+}).addTo(map);
+
+L.marker([51.505, -0.09]).addTo(map)
+    .bindPopup('A marker on London.')
+    .openPopup();

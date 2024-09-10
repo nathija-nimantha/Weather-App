@@ -93,7 +93,7 @@ header input {
     background-color: #e1e1e1;
     border: none;
     border-radius: 10px;
-    color: #ffffff;
+    color: #007bff;
     font-size: 16px;
     box-sizing: border-box;
     margin-bottom: 30px;
@@ -410,18 +410,63 @@ body.dark-mode {
     text-decoration: underline;
 }
 
-/* CSS FOR COUNTRY PAGE */
 #real-feel, #wind-speed, #uv-index {
-    font-size: 1.5rem; /* Medium-large text for emphasis */
-    color: #ffffff; /* Dark grey text for good readability */
-    margin-bottom: 10px; /* Space between the items */
-    font-weight: bold; /* Bold text to stand out */
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #real-feel::before, #wind-speed::before, #uv-index::before {
-    content: attr(data-label); /* Use a data-label attribute for prefix text */
-    font-size: 1rem; /* Slightly smaller text for the labels */
-    color: #555555; /* Medium grey for the label text */
-    margin-right: 5px; /* Space between the label and the value */
-    font-weight: normal; /* Normal weight for label text */
+    content: attr(data-label);
+    font-size: 1rem;
+    color: #555555;
+    margin-right: 5px;
+    font-weight: normal; 
+}
+
+
+/* CSS FOR COUNTRY PAGE */
+
+#country-search {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#country-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.country-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.country-item:hover {
+    background-color: #f0f0f0;
+}
+
+#country-details {
+    margin-top: 20px;
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+#country-details img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+/* CSS FOR MAP PAGE */
+
+#map {
+    height: 500px;
+    width: 100%;
 }
