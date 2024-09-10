@@ -1,3 +1,35 @@
+//----------Dark Mode Switch----------
+const darkModeSwitch = document.getElementById('darkModeSwitch');
+
+if (localStorage.getItem('darkMode') === 'enabled') {
+    enableDarkMode();
+    darkModeSwitch.checked = true;
+}
+
+darkModeSwitch.addEventListener('change', () => {
+    if (darkModeSwitch.checked) {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+});
+
+function enableDarkMode() {
+    document.body.classList.add('dark-mode');
+    document.querySelector('.sidebar').classList.add('dark-mode');
+    document.querySelector('.main-content').classList.add('dark-mode');
+    document.getElementById('hourly-forecast').classList.add('dark-mode'); // Add this line
+    localStorage.setItem('darkMode', 'enabled');
+}
+
+function disableDarkMode() {
+    document.body.classList.remove('dark-mode');
+    document.querySelector('.sidebar').classList.remove('dark-mode');
+    document.querySelector('.main-content').classList.remove('dark-mode');
+    document.getElementById('hourly-forecast').classList.remove('dark-mode'); // Add this line
+    localStorage.setItem('darkMode', 'disabled');
+}
+
 //----------Buttons On Click Events----------
 const btnWeather = document.getElementById('weather-btn');
 const btnCities = document.getElementById('city-btn');
