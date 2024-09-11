@@ -64,7 +64,7 @@ btnMap.addEventListener('click', () => {
     weatherSection.style.display = 'none';
     countryInfoSection.style.display = 'none';
     settingsSection.style.display = 'none';
-    // aboutSection.style.display = 'none';
+    aboutSection.style.display = 'none';
     mapSection.style.display = 'block';
 });
 
@@ -91,8 +91,12 @@ const apiBaseUrl = "https://api.weatherapi.com/v1";
 async function fetchWeatherData(city) {
     try {
         const response = await fetch(`${apiBaseUrl}/forecast.json?key=${apiKey}&q=${city}&days=7`);
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
         const data = await response.json();
         updateWeatherUI(data);
+        console.log(data);
     } catch (error) {
         console.error("Error fetching weather data:", error);
         alert("Failed to fetch weather data. Please check the city name and try again.");
@@ -144,25 +148,26 @@ function updateWeatherUI(data) {
 
 function handleCitySearch() {
     const cityInput = document.getElementById("city-input");
-    cityInput.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            const city = cityInput.value;
-            fetchWeatherData(city);
-        }
-    });
 
-    const citySearchBtn = document.getElementById("city-search-btn");
-    citySearchBtn.addEventListener('click', () => {
-        const city = cityInput.value;
-        fetchWeatherData(city);
+    cityInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            const city = cityInput.value.trim();
+            if (city) {
+                fetchWeatherData(city);
+            } else {
+                alert("Please enter a city name.");
+            }
+        }
     });
 }
 
 function init() {
+    handleCitySearch();
     fetchWeatherData("Colombo");
 }
 
 init();
+
 
 
 // Cities Page
@@ -185,7 +190,6 @@ async function fetchCountries() {
     try {
         const response = await fetch('https://restcountries.com/v3.1/all');
         countries = await response.json();
-        console.log(response);
         displayCountries(countries);
     } catch (error) {
         console.error('Error fetching countries:', error);
@@ -193,6 +197,7 @@ async function fetchCountries() {
 }
 
 function displayCountries(countries) {
+    countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
     countryList.innerHTML = '';
     countries.forEach(country => {
         const countryItem = document.createElement('div');
@@ -225,13 +230,3 @@ countrySearch.addEventListener('input', function () {
 fetchCountries();
 
 //Map Page
-var map = L.map('map').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 19
-}).addTo(map);
-
-L.marker([51.505, -0.09]).addTo(map)
-    .bindPopup('A marker on London.')
-    .openPopup();

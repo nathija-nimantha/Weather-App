@@ -65,7 +65,7 @@ body {
     background-color: #0e36e9;
     border-radius: 10px;
     text-align: center;
-    color: #ffffff; /* White text */
+    color: #ffffff;
     padding: 10px;
     border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -100,11 +100,11 @@ header input {
 }
 
 .main-content header input[type="text"] {
-    border: 1px solid #ced4da;
+    border: 1px solid #0466c9;
     padding: 10px;
     width: 100%;
     border-radius: 4px;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075);
 }
 
 .weather-overview {
@@ -351,7 +351,7 @@ header input {
     color: #007bff;
 }
 
-.settings-section h2.dark-mode{
+.settings-section h2.dark-mode {
     color: white;
 }
 
@@ -410,19 +410,23 @@ body.dark-mode {
     text-decoration: underline;
 }
 
-#real-feel, #wind-speed, #uv-index {
+#real-feel,
+#wind-speed,
+#uv-index {
     font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
-#real-feel::before, #wind-speed::before, #uv-index::before {
+#real-feel::before,
+#wind-speed::before,
+#uv-index::before {
     content: attr(data-label);
     font-size: 1rem;
     color: #555555;
     margin-right: 5px;
-    font-weight: normal; 
+    font-weight: normal;
 }
 
 
@@ -466,7 +470,20 @@ body.dark-mode {
 
 /* CSS FOR MAP PAGE */
 
-#map {
-    height: 500px;
+/* Map Section Styles */
+.Map-section {
     width: 100%;
+    height: 100%;
+    background-color: #181818;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
 }
