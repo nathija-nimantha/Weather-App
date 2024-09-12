@@ -4,7 +4,6 @@
 }
 
 #country-info-section,
-#map-section,
 #settings-section,
 #about-section {
     display: none;
@@ -160,6 +159,24 @@ header input {
 
 .details .card:last-child {
     margin-right: 0;
+}
+
+.hourly-forecast .hour-card:hover {
+    background-color: #0e36e9;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details .card:hover {
+    background-color: #0e36e9;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weekly-forecast .day-card:hover {
+    background-color: #0e36e9;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .details .card h3 {
@@ -340,6 +357,25 @@ header input {
     background-color: #444;
 }
 
+#real-feel,
+#wind-speed,
+#uv-index {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#real-feel::before,
+#wind-speed::before,
+#uv-index::before {
+    content: attr(data-label);
+    font-size: 1rem;
+    color: #555555;
+    margin-right: 5px;
+    font-weight: normal;
+}
+
 /* Settings Section */
 .settings-section {
     color: #0303031c;
@@ -386,51 +422,16 @@ body.dark-mode {
     color: #007bff;
 }
 
-/* About Section */
-.about-section {
-    color: #161515;
+.form-check-label {
+    margin-top: 20px;
 }
 
-.about-section h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.about-section p {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.about-section a {
-    color: #3da9fc;
-    text-decoration: none;
-}
-
-.about-section a:hover {
-    text-decoration: underline;
-}
-
-#real-feel,
-#wind-speed,
-#uv-index {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-#real-feel::before,
-#wind-speed::before,
-#uv-index::before {
-    content: attr(data-label);
-    font-size: 1rem;
-    color: #555555;
-    margin-right: 5px;
-    font-weight: normal;
+#darkModeSwitch {
+    margin-top: 25px;
 }
 
 
-/* CSS FOR COUNTRY PAGE */
+/* Country Section Styles */
 
 #country-search {
     margin-bottom: 20px;
@@ -440,7 +441,7 @@ body.dark-mode {
 }
 
 #country-list {
-    max-height: 200px;
+    max-height: 290px;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 10px;
@@ -468,22 +469,50 @@ body.dark-mode {
     margin-bottom: 20px;
 }
 
-/* CSS FOR MAP PAGE */
-
 /* Map Section Styles */
-.Map-section {
+#Map-section {
     width: 100%;
     height: 100%;
     background-color: #181818;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #map {
     width: 100%;
-    height: 500px;
+    height: 740px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
+}
+
+
+/* About Section Styles */
+.about-section {
+    color: #0303031c;
+}
+
+.about-section h1 {
+    margin-bottom: 20px;
+    font-size: 29px;
+    color: #007bff;
+}
+
+.about-section h2.dark-mode {
+    color: white;
+}
+
+.about-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.about-section a {
+    color: #3da9fc;
+    text-decoration: none;
+}
+
+.about-section a:hover {
+    text-decoration: underline;
 }

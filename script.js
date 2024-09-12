@@ -32,7 +32,7 @@ function disableDarkMode() {
 
 //----------Buttons On Click Events----------
 const btnWeather = document.getElementById('weather-btn');
-const btnCities = document.getElementById('city-btn');
+const btnCountry = document.getElementById('country-btn');
 const btnMap = document.getElementById('map-btn');
 const btnSettings = document.getElementById('settings-btn');
 const btnAbout = document.getElementById('about-btn');
@@ -43,7 +43,6 @@ const mapSection = document.getElementById('map-section');
 const settingsSection = document.getElementById('settings-section');
 const aboutSection = document.getElementById('about-section');
 
-// Button Event Listeners
 btnWeather.addEventListener('click', () => {
     weatherSection.style.display = 'block';
     countryInfoSection.style.display = 'none';
@@ -52,7 +51,7 @@ btnWeather.addEventListener('click', () => {
     mapSection.style.display = 'none';
 });
 
-btnCities.addEventListener('click', () => {
+btnCountry.addEventListener('click', () => {
     weatherSection.style.display = 'none';
     countryInfoSection.style.display = 'block';
     settingsSection.style.display = 'none';
@@ -168,8 +167,6 @@ function init() {
 
 init();
 
-
-
 // Cities Page
 
 const countrySearch = document.getElementById('country-search');
@@ -196,7 +193,7 @@ async function fetchCountries() {
     }
 }
 
-function displayCountries(countries) {
+function displayCountries(countries) {  
     countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
     countryList.innerHTML = '';
     countries.forEach(country => {
