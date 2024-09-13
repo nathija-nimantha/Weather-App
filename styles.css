@@ -493,9 +493,13 @@ body.dark-mode {
 }
 
 .about-section h1 {
-    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 29px;
     color: #007bff;
+}
+
+.about-section .container{
+    background-color: #0303031c;
 }
 
 .about-section h2.dark-mode {
